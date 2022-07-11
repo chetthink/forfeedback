@@ -397,16 +397,23 @@ void CgPrjDlg::OnBnClickedBtnTask()
 	}
 	//십자선을 시각화
 	for (int j = nCentetX - dLengthCross; j < nCentetX + dLengthCross; j++) {
-		fm[nCentetY * nPitch + j] = 111;
+		fm[nCentetY * nPitch + j] = 112;
 	}
 	for (int i = nCentetY - dLengthCross; i < nCentetY + dLengthCross; i++) {
-		fm[i * nPitch + nCentetX] = 111;
+		fm[i * nPitch + nCentetX] = 112;
 	}
+
+
+
+	
+
+	cout << "주변선 색상"  << endl;
+
 	//주변선을 시각화
 	for (int j = point_y -50 ; j < point_y + m_radius_length * 2 + 50; j++) {
 		for (int i = point_x -50 ; i < point_x + m_radius_length * 2 + 50; i++) {
 			if (borderOfCircle(i, j, nCentetX, nCentetY, m_radius_length))
-				fm[j* nPitch + i] = RGB(255,255,0);
+				fm[j* nPitch + i] = 111;
 		}
 	}
 

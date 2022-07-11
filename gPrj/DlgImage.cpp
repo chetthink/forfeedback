@@ -65,8 +65,15 @@ void CDlgImage::InitImage()
 	m_image.Create(nWidth, -nHeight, nBpp);
 	if (nBpp == 8) {
 		static RGBQUAD rgb[256];
-		for (int i = 0; i < 256; i++)
+		for (int i = 0; i < 256; i++) {
 			rgb[i].rgbRed = rgb[i].rgbGreen = rgb[i].rgbBlue = i;
+			if (i == 111) {
+				rgb[i].rgbRed = 255;
+				rgb[i].rgbGreen = 255;
+				rgb[i].rgbBlue = 0;
+			}
+		}
+			
 		m_image.SetColorTable(0, 256, rgb);
 	}
 
@@ -75,6 +82,8 @@ void CDlgImage::InitImage()
 
 	memset(fm, 0xff, nWidth*nHeight);
 }
+
+
 
 
 void CDlgImage::OnPaint()
